@@ -1,0 +1,16 @@
+[Unit]
+Description=Simple http server on port 8000
+
+[Service]
+User=root
+WorkingDirectory=/home/yusuf/work/hr/task1
+ExecStart=/usr/bin/bash /home/yusuf/work/hr/task1/main.sh
+
+StandardOutput=file:/home/yusuf/work/hr/task1/output.log
+StandardError=file:/home/yusuf/work/hr/task1/error.log
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+Alias=http.service
