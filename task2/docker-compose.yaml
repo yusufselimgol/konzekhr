@@ -1,7 +1,7 @@
 version: 'v1'
 services:
   http-server01:
-    image: http-server:v12
+    image: http-server:v2
     hostname: http-server01
     expose:
       - "8000"
@@ -12,7 +12,9 @@ services:
     depends_on:
       - http-server01
     ports:
-      - "8000:8000"
+      - "8000-8002:8000"
+    deploy:
+      replicas: 3
 
 networks:
   default:
